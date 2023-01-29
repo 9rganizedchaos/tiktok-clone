@@ -1,22 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/email_screen.dart';
+
+enum TapHandler { emailButton, appleButton }
 
 class AuthButton extends StatelessWidget {
   final String text;
   final FaIcon icon;
-  final void Function(BuildContext context) onButtonTap;
+  final TapHandler tapHandler;
 
-  const AuthButton(
-      {super.key,
-      required this.text,
-      required this.icon,
-      required this.onButtonTap});
+  const AuthButton({
+    super.key,
+    required this.text,
+    required this.icon,
+    required this.tapHandler,
+  });
+
+  void _onEmailTap(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: ((context) => const EmailScreen()),
+    ));
+  }
+
+  void _onAppleTap(BuildContext context) {}
+
+  void _onAuthButtonTap(BuildContext context) {
+    switch (tapHandler) {
+      case TapHandler.emailButton:
+        {
+          _onEmailTap(context);
+        }
+        break;
+      case TapHandler.appleButton:
+        {
+          _onAppleTap(context);
+        }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onButtonTap(context),
+      onTap: () => _onAuthButtonTap(context),
       child: FractionallySizedBox(
         widthFactor: 1,
         child: Container(
