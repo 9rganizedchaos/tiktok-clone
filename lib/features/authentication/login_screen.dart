@@ -40,16 +40,20 @@ class LoginScreen extends StatelessWidget {
               ),
               Gaps.v40,
               AuthButton(
-                  icon: FaIcon(
-                    FontAwesomeIcons.user,
-                  ),
-                  text: "Use email & password"),
+                icon: FaIcon(
+                  FontAwesomeIcons.user,
+                ),
+                text: "Use email & password",
+                tapHandler: TapHandler.emailButton,
+              ),
               Gaps.v14,
               AuthButton(
-                  icon: FaIcon(
-                    FontAwesomeIcons.apple,
-                  ),
-                  text: "Continue with Apple"),
+                icon: FaIcon(
+                  FontAwesomeIcons.apple,
+                ),
+                text: "Continue with Apple",
+                tapHandler: TapHandler.appleButton,
+              ),
             ],
           ),
         ),
