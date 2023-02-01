@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                   FontAwesomeIcons.user,
                 ),
                 text: "Use email & password",
-                tapHandler: TapHandler.emailButton,
+                tapHandler: TapHandler.emailLoginButton,
               ),
               Gaps.v14,
               AuthButton(
