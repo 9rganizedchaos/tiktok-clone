@@ -31,10 +31,11 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
   }
 
   void _onNextTap() {
-    Navigator.of(context).push(
+    Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(
         builder: ((context) => const InterestScreen()),
       ),
+      (route) => false,
     );
   }
 
@@ -94,7 +95,11 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
             ),
             Gaps.v28,
             GestureDetector(
-                onTap: _onNextTap, child: const FormButton(disabled: false))
+              onTap: _onNextTap,
+              child: const FormButton(
+                disabled: false,
+              ),
+            )
           ],
         ),
       ),
